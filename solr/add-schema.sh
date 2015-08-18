@@ -1,7 +1,7 @@
 #!/bin/bash
 set -v
-KEYSPACE=retail
-
+KEYSPACE=retail_search
+dd
 if [ "$1" == "-r" ] ; then
     ACTION=RELOAD
     shift

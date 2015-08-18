@@ -4,7 +4,7 @@ import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.webapp.WebAppContext;
-import retail.helpers.cassandra.CassandraData;
+import retail.helpers.cassandra.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -53,6 +53,7 @@ public class StartJetty {
 
     // Connect to Cassandra
     CassandraData.init(cfgProperties.getProperty("KEYSPACE"), cfgProperties.getProperty("DSE_CLUSTER"));
+    CassandraDataSearch.init(cfgProperties.getProperty("KEYSPACE_SEARCH"), cfgProperties.getProperty("DSE_CLUSTER"));
 
     Server server = new Server(Integer.parseInt(cfgProperties.getProperty("APPLICATION_PORT")));
 

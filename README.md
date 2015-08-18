@@ -122,3 +122,4 @@ It takes the parameter from the method out of the URL path, so what every keyspa
 ```
 
 The templates under web/templates are basic jinja2 templates that are similiar to JSP's.  Everything between {%  %}  is part of the script for that template.  Then the content for the page gets pulled in where the {{ content }} is defined.
+# bootcamp

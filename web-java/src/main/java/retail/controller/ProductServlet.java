@@ -2,7 +2,7 @@ package retail.controller;
 
 import com.google.common.collect.Maps;
 import retail.helpers.jinjahelper.JinjaServlet;
-import retail.model.ProductDAO;
+import retail.model.ProductSearchDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -27,7 +27,7 @@ public class ProductServlet extends JinjaServlet {
     String product_id = request.getParameter("product_id");
 
     if (product_id != null && !product_id.isEmpty()) {
-      ProductDAO product = ProductDAO.getProductById(product_id);
+      ProductSearchDAO product = ProductSearchDAO.getProductById(product_id);
 
       context.put("product", product);
       if (product != null) {

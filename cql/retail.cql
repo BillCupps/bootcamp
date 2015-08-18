@@ -1,6 +1,9 @@
 CREATE KEYSPACE IF NOT EXISTS retail
 WITH replication = { 'class' : 'NetworkTopologyStrategy', 'DC1' : 1, 'DC2' : 1 };
 
+CREATE KEYSPACE IF NOT EXISTS retail_search
+WITH replication = { 'class' : 'NetworkTopologyStrategy', 'DC1' : 1, 'DC2' : 1 };
+
 
 -- static data
 
@@ -16,7 +19,7 @@ CREATE TABLE IF NOT EXISTS retail.suppliers (
    PRIMARY KEY (supplier_id)
 );
 
-CREATE TABLE IF NOT EXISTS retail.products_by_id (
+CREATE TABLE IF NOT EXISTS retail_search.products_by_id (
    supplier_name text,
    supplier_id int,
    title text,

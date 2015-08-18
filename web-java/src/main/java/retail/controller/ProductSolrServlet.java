@@ -1,10 +1,10 @@
 package retail.controller;
 
 import com.google.common.collect.Maps;
+import retail.helpers.cassandra.CassandraDataSearch;
 import retail.helpers.jinjahelper.JinjaServlet;
-import retail.helpers.cassandra.CassandraData;
 import retail.model.FacetDAO;
-import retail.model.ProductDAO;
+import retail.model.ProductSearchDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -30,9 +30,9 @@ public class ProductSolrServlet extends JinjaServlet {
     String search_term = request.getParameter("s");
     String filter_by = request.getParameter("filter_by");
 
-    String solr_query = CassandraData.makeSolrQueryString(search_term, filter_by);
+    String solr_query = CassandraDataSearch.makeSolrQueryString(search_term, filter_by);
 
-    List<ProductDAO> products = ProductDAO.getProductsSolrQuery(solr_query);
+    List<ProductSearchDAO> products = ProductSearchDAO.getProductsSolrQuery(solr_query);
 
     Map<String, List<FacetDAO>> facetsMap = FacetDAO.getSolrQueryFacets(solr_query, "category_name", "supplier_name");
 
